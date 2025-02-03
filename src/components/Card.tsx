@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from "react";
 import { Maximize2, Heart, Share2, Info } from "lucide-react";
-import fallBackImage from "../assets/default_image.avif";
+import fallBackImage from "../assets/default_image.jpg";
 
 interface CardProps {
   photocardData: PhotoCardProps;
@@ -26,9 +26,10 @@ const Card: React.FC<CardProps> = ({ photocardData }) => {
   const likeColor = isLiked
     ? "text-red-500 bg-red-50"
     : "text-gray-600 hover:bg-gray-50";
+
   return (
     <div
-      className="relative group  bg-white rounded-xl shadow-lg transform transition-all duration-500 hover:scale-105 border w-full max-w-[400px] lg:max-w-none mx-auto"
+      className="relative group  bg-white rounded-xl shadow-lg transform transition-all duration-500 hover:scale-105 w-full max-w-[400px] lg:max-w-none mx-auto"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

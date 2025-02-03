@@ -26,7 +26,7 @@ const Sidebar = ({ isOpen, toggleSidebar, closeSidebar }: SidebarProps) => {
       </button>
       <ul className="p-4 pt-20 flex flex-col gap-6">
         {menuItems.map((item) => (
-          <li key={item.to} className=" border rounded-md hover:bg-gray-700 ">
+          <li key={item.to} className="border-gray-800 rounded-md hover:bg-gray-700 ">
             <Link
               to={item.to}
               className=" py-2 ml-2  rounded transition-colors duration-200 flex items-center gap-2"

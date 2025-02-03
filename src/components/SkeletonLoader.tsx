@@ -1,12 +1,11 @@
-import React from "react";
-import fallBackImage from "../assets/default_image.avif";
+import fallBackImage from "../assets/default_image.jpg";
 import { Heart, Share2, Info } from "lucide-react";
 
-const SkeletonLoader: React.FC = () => {
+const SkeletonLoader = () => {
   return (
     //Loading card container
     <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-8 ">
-      {[...Array(10)].map((_, index) => (
+      {[...Array(15)].map((_, index) => (
         // Loading cards
         <div
           className="relative  bg-white rounded-xl shadow-lg transform transition-all duration-500 animate-pulse w-full max-w-[400px]  lg:max-w-none mx-auto"
@@ -26,7 +25,7 @@ const SkeletonLoader: React.FC = () => {
           </div>
           {/* card title */}
           <div className="p-4">
-            <h3 className="text-lg font-semibold text-gray-800 line-clamp-2 mb-2"></h3>
+            <h3 className="text-lg font-semibold text-gray-800 line-clamp-2 mb-17"></h3>
 
             <div className="flex items-center text-sm text-gray-600 mb-4">
               <Info className="w-4 h-4 mr-1" />

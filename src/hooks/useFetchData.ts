@@ -12,7 +12,7 @@ const useFetchData = () => {
         const response = await axios.get(
           "https://jsonplaceholder.typicode.com/photos"
         );
-        setData(response.data.slice(0, 10)); // Limit to 10 items for simplicity
+        setData(response.data.slice(0, 15));
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
