@@ -6,7 +6,7 @@ const Home = () => {
   const { data, loading } = useFetchData();
 
   return (
-    <div className="container  p-4">
+    <div className="container p-4">
       {loading ? (
         <SkeletonLoader />
       ) : (

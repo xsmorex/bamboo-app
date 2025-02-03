@@ -1,50 +1,63 @@
-# React + TypeScript + Vite
+# 🎋 Bamboo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React application showcasing a photo gallery with smooth page transitions and interactive components.
 
-Currently, two official plugins are available:
+## 🔧 Check the deployed version here: https://bamboo-app-fp99.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- **Interactive Photo Cards** - A photo display with hover effects and sharing capabilities
+- **About** - A little about me page
+- **Responsive Design** - Fully responsive layout using Tailwind CSS
+- **Modern UI** - Clean and design with subtle animations and a skeleton loader
+- **Route handlers** - Custom 404 page
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🚀 Tech Stack
 
-- Configure the top-level `parserOptions` property like this:
+- **React** - Frontend library
+- **TypeScript** - Type safety and better developer experience
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Animation library
+- **Lucide React** - Beautiful icons
+- **Vite** - Next generation frontend tooling
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🛠️ Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/xsmorex/bamboo-app.git
+cd bamboo-app
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+## 🎨 Components
+
+### PhotoCard
+An interactive photo card component with:
+- Hover animations
+- Image zoom effect
+- Like button functionality
+- Share capabilities
+- Responsive design
+
+### SkeletonLoader
+A loading skeleton component.
+- Placeholder for an UI of the gallery to load.
+
+### AboutPage
+A little about me page.
+
+## 🔧 Development
+
+- **Build**: `npm run build`
+- **Lint**: `npm run lint`
+

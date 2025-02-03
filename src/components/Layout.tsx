@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState} from 'react';
 import { Outlet } from "react-router-dom";
 import Sidenav from "./Sidenav";
 import { AlignRight } from "lucide-react";
 
 const Layout = () => {
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
