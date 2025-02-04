@@ -3,25 +3,25 @@ import { Maximize2, Heart, Share2, Info } from "lucide-react";
 import fallBackImage from "../assets/default_image.jpg";
 
 interface CardProps {
-  photocardData: PhotoCardProps;
+  product: Product;
 }
 
-const Card: React.FC<CardProps> = ({ photocardData }) => {
-  const { title, url, albumId, id } = photocardData;
+const Card: React.FC<CardProps> = ({ product }) => {
+  const { id, title, price, description, images, category } = product;
   const [isLiked, setIsLiked] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const handleLike = () => setIsLiked(!isLiked);
-  const handleShare = () => {
-    navigator
-      .share?.({
-        title,
-        url: url,
-      })
-      .catch(() => {
-        console.log("error sharing");
-      });
-  };
+  // const handleShare = () => {
+  //   navigator
+  //     .share?.({
+  //       title,
+  //       url: url,
+  //     })
+  //     .catch(() => {
+  //       console.log("error sharing");
+  //     });
+  // };
 
   const likeColor = isLiked
     ? "text-red-500 bg-red-50"
@@ -36,9 +36,9 @@ const Card: React.FC<CardProps> = ({ photocardData }) => {
       {/* card image */}
       <div className="relative overflow-hidden rounded-t-xl aspect-square  ">
         <img
-          src={url}
+          src={images[0]}
           onError={(e: SyntheticEvent<HTMLImageElement>) => {
-            e.currentTarget.src = fallBackImage;
+            e.currentTarget.src = category.image;
           }}
           alt={title}
           className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
@@ -52,7 +52,7 @@ const Card: React.FC<CardProps> = ({ photocardData }) => {
         >
           <button
             className="p-2 bg-white rounded-full transform hover:scale-110 transition-transform cursor-pointer"
-            onClick={() => window.open(url, "_blank")}
+            onClick={() => window.open(category.image, "_blank")}
           >
             <Maximize2 className="w-6 h-6 text-gray-800" />
           </button>
@@ -67,7 +67,7 @@ const Card: React.FC<CardProps> = ({ photocardData }) => {
         <div className="flex items-center text-sm text-gray-600 mb-4">
           <Info className="w-4 h-4 mr-1" />
           <span>
-            Album {albumId} • Photo {id}
+            Album {price} • Photo {title}
           </span>
         </div>
 
@@ -83,7 +83,7 @@ const Card: React.FC<CardProps> = ({ photocardData }) => {
 
           <button
             className="flex cursor-pointer items-center gap-1 px-3 py-1 rounded-full text-gray-600 hover:bg-gray-50 transition-colors"
-            onClick={handleShare}
+            // onClick={handleShare}
           >
             <Share2 className="w-5 h-5" />
             <span>Share</span>
