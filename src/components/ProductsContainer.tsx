@@ -1,6 +1,7 @@
 import { useEffect, memo } from "react";
 import Card from "./Card";
 import { useIntersectionObserver } from "@uidotdev/usehooks";
+
 interface ProductsContainerProps {
   products: Product[];
   setLimit: React.Dispatch<React.SetStateAction<number>>;
@@ -9,8 +10,8 @@ interface ProductsContainerProps {
 }
 const ProductsContainer: React.FC<ProductsContainerProps> = ({
   products,
-  setLimit,
   loading,
+  setLimit,
   setOffset,
 }) => {
   const [ref, entry] = useIntersectionObserver({
