@@ -1,13 +1,12 @@
 import { SyntheticEvent, useState } from "react";
 import { Maximize2, Heart, Share2, Info } from "lucide-react";
-import fallBackImage from "../assets/default_image.jpg";
 
 interface CardProps {
   product: Product;
 }
 
 const Card: React.FC<CardProps> = ({ product }) => {
-  const { id, title, price, description, images, category } = product;
+  const { title, price, images, category } = product;
   const [isLiked, setIsLiked] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -67,7 +66,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
         <div className="flex items-center text-sm text-gray-600 mb-4">
           <Info className="w-4 h-4 mr-1" />
           <span>
-            Album {price} • Photo {title}
+            $ {price} • Title {title}
           </span>
         </div>
 
