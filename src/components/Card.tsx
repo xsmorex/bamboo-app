@@ -11,16 +11,16 @@ const Card: React.FC<CardProps> = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleLike = () => setIsLiked(!isLiked);
-  // const handleShare = () => {
-  //   navigator
-  //     .share?.({
-  //       title,
-  //       url: url,
-  //     })
-  //     .catch(() => {
-  //       console.log("error sharing");
-  //     });
-  // };
+  const handleShare = () => {
+    navigator
+      .share?.({
+        title,
+        url: images[0],
+      })
+      .catch(() => {
+        console.log("error sharing");
+      });
+  };
 
   const likeColor = isLiked
     ? "text-red-500 bg-red-50"
@@ -82,7 +82,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
 
           <button
             className="flex cursor-pointer items-center gap-1 px-3 py-1 rounded-full text-gray-600 hover:bg-gray-50 transition-colors"
-            // onClick={handleShare}
+            onClick={handleShare}
           >
             <Share2 className="w-5 h-5" />
             <span>Share</span>

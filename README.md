@@ -1,15 +1,15 @@
 # 🎋 Bamboo App
 
-A responsive React application showcasing a photo gallery with smooth page transitions and interactive components.
+A responsive React application showcasing a product gallery with smooth page transitions and interactive components.
 
 ## 🔧 Check the deployed version here: https://bamboo-app-fp99.vercel.app/
 
 ## ✨ Features
 
-- **Interactive Photo Cards** - A photo display with hover effects and sharing capabilities
+- **Interactive Product Cards** - Product cards display with paginated API with the load more incremental loading.
 - **About** - A little about me page
 - **Responsive Design** - Fully responsive layout using Tailwind CSS
-- **Modern UI** - Clean and design with subtle animations and a skeleton loader
+- **Modern UI** - Clean design with subtle animations, skeleton loader, like and share buttons.
 - **Route handlers** - Custom 404 page
 
 ## 🚀 Tech Stack
@@ -17,7 +17,6 @@ A responsive React application showcasing a photo gallery with smooth page trans
 - **React** - Frontend library
 - **TypeScript** - Type safety and better developer experience
 - **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
 - **Lucide React** - Beautiful icons
 - **Vite** - Next generation frontend tooling
 
@@ -43,8 +42,8 @@ The app will be available at http://localhost:5173/
 
 ## 🎨 Components
 
-### PhotoCard
-An interactive photo card component with:
+### Card
+An interactive product card component with:
 - Hover animations
 - Image zoom effect
 - Like button functionality

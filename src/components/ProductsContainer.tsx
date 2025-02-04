@@ -1,46 +1,40 @@
-import { useEffect, memo } from "react";
+import { memo } from "react";
 import Card from "./Card";
-import { useIntersectionObserver } from "@uidotdev/usehooks";
+import SkeletonLoader from "./SkeletonLoader";
 interface ProductsContainerProps {
   products: Product[];
-  setLimit: React.Dispatch<React.SetStateAction<number>>;
   loading: boolean;
-  setOffset: React.Dispatch<React.SetStateAction<number>>;
+  setLimit: React.Dispatch<React.SetStateAction<number>>;
 }
 const ProductsContainer: React.FC<ProductsContainerProps> = ({
   products,
-  setLimit,
   loading,
-  setOffset,
+  setLimit,
 }) => {
-  const [ref, entry] = useIntersectionObserver({
-    threshold: 0,
-    root: null,
-    rootMargin: "0px",
-  });
+  const handleLoadMore = () => {
+    setLimit((prev) => prev + 10);
+  };
 
-  useEffect(() => {
-    if (entry?.isIntersecting) {
-      setLimit((limit) => limit + 10);
-      setOffset((offset) => offset + 10);
-    }
-  }, [entry]);
   if (products.length === 0) {
     return <div>No products found</div>;
   }
+
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
         {products.map((product) => (
           <Card key={product.id} product={product} />
         ))}
-
-        <div ref={ref} />
       </div>
-      {loading && (
-        <p className="text-center text-base animate-pulse">
-          Loading more products.........................
-        </p>
+      {products.length > 1 && loading ? (
+        <SkeletonLoader />
+      ) : (
+        <button
+          className="text-2xl text-gray-800 mx-auto block my-10 px-2 py-1 rounded-md cursor-pointer shadow-2xs hover:shadow-xl"
+          onClick={handleLoadMore}
+        >
+          Load More
+        </button>
       )}
     </>
   );
