@@ -26,6 +26,9 @@ const Card: React.FC<CardProps> = ({ product }) => {
     ? "text-red-500 bg-red-50"
     : "text-gray-600 hover:bg-gray-50";
 
+    const urlRegex = /https?:\/\/[^\s"\\]+/g;
+    const sanitImg = images[0].match(urlRegex)?.toString();
+
   return (
     <div
       className="relative group  bg-white rounded-xl shadow-lg transform transition-all duration-500 hover:scale-105 w-full max-w-[400px] lg:max-w-none mx-auto"
@@ -35,7 +38,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
       {/* card image */}
       <div className="relative overflow-hidden rounded-t-xl aspect-square  ">
         <img
-          src={images[0]}
+          src={sanitImg}
           onError={(e: SyntheticEvent<HTMLImageElement>) => {
             e.currentTarget.src = category.image;
           }}
